@@ -18747,10 +18747,10 @@
                         r = y(i);
                     n.pane = n.options.pane, n.pane && (n._isMobile = !0), r || (t = i || w[n.type]), n._isMobile ? n._createMobileForm(t) : n._createForm(t), n.form.on("submit" + m, u(n._submit, n)).on("reset" + m, u(n._reset, n)), r && n.form.find(".k-textbox").removeClass("k-textbox").each(function() {
                         i(e(this))
-                    }), n.form.find("[" + c.attr("role") + "=numerictextbox]").removeClass("k-textbox").end().find("[" + c.attr("role") + "=datetimepicker]").removeClass("k-textbox").end().find("[" + c.attr("role") + "=timepicker]").removeClass("k-textbox").end().find("[" + c.attr("role") + "=datepicker]").removeClass("k-textbox"), n.refresh(), n.trigger(p, {
+                    }), n.form.find("[" + c.attr("role") + "=numerictextbox]").removeClass("k-textbox").end().find("[" + c.attr("role") + "=datetimepicker]").removeClass("k-textbox").end().find("[" + c.attr("role") + "=timepicker]").removeClass("k-textbox").end().find("[" + c.attr("role") + "=datepicker]").removeClass("k-textbox"), n.refresh(), /*n.trigger(p, {
                         field: n.field,
                         container: n.form
-                    }), c.cycleForm(n.form)
+                    }),*/ c.cycleForm(n.form)
                 },
                 _createForm: function(t) {
                     var n = this,
@@ -18867,7 +18867,10 @@
                     this._isMobile ? this.pane.navigate("", this.options.animations.right) : this.popup.close()
                 },
                 _click: function(e) {
-                    e.preventDefault(), e.stopPropagation(), this.popup || this.pane || this._init(), this._isMobile ? this.pane.navigate(this.view, this.options.animations.left) : this.popup.toggle()
+                    e.preventDefault(), e.stopPropagation(), n.trigger(p, {
+                        field: n.field,
+                        container: n.form
+                    }), this.popup || this.pane || this._init(), this._isMobile ? this.pane.navigate(this.view, this.options.animations.left) : this.popup.toggle()
                 },
                 _open: function() {
                     var t;
