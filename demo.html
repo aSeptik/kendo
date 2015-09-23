@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="copyright" content="devilmaycode studio (r)" />
+    <meta name="description" content="Revert a jQuery draggable object back to its original container on out event of droppable" />
+    <meta name="keywords" content="jquery, kendo, kendo-ui, kendo ui, filter, multi, column, filtering, disable" />
+    <meta name="robots" content="index,follow" />
+    <title>disable kendo-ui grid multi column filtering</title>
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2015.2.805/styles/kendo.common.min.css">
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2015.2.805/styles/kendo.rtl.min.css">
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2015.2.805/styles/kendo.default.min.css">
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2015.2.805/styles/kendo.mobile.all.min.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.2.805/js/angular.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.2.805/js/jszip.min.js"></script>
+    <script src="https://raw.githubusercontent.com/aSeptik/kendo/kendo-hacked/kendo.all.js"></script>
+</head>
+
+<body>
+    <h1><a href="http://stackoverflow.com/questions/32690273/disable-kendo-ui-grid-multi-column-filtering" >disable kendo-ui grid multi column filtering</a></h1>
+        <div id="grid"></div>
+        <script>
+        $(function() {
+            var grid = $("#grid").kendoGrid({
+                columns: [{
+                    field: "name",
+                    type: "string"
+                }, {
+                    field: "age",
+                    type: 'number'
+                }],
+                filterable: {
+                    extra: false
+
+                },
+
+                filterMenuInit: function(e) {
+                    //alert(e.field)
+                    $("form.k-filter-menu button[type='reset']").trigger("click");
+                },
+                dataSource: {
+                    data: [{
+                        name: "Jane",
+                        age: 30
+                    }, {
+                        name: "John",
+                        age: 33
+                    }, {
+                        name: "Jonathan",
+                        age: 12
+                    }, {
+                        name: "Gianni",
+                        age: 12
+                    }, {
+                        name: "Luca",
+                        age: 12
+                    }, {
+                        name: "Mario",
+                        age: 12
+                    }]
+                }
+            }).data("kendoGrid");
+        });
+        </script>
+</body>
+
+</html>
