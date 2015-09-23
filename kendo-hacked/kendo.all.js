@@ -18867,9 +18867,9 @@
                     this._isMobile ? this.pane.navigate("", this.options.animations.right) : this.popup.close()
                 },
                 _click: function(e) {
-                    e.preventDefault(), e.stopPropagation(), n.trigger(p, {
-                        field: n.field,
-                        container: n.form
+                    e.preventDefault(), e.stopPropagation(), this.trigger(p, {
+                        field: this.field,
+                        container: this.form
                     }), this.popup || this.pane || this._init(), this._isMobile ? this.pane.navigate(this.view, this.options.animations.left) : this.popup.toggle()
                 },
                 _open: function() {
